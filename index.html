@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodSpot - Portal Catering Terlengkap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --secondary: #FFD23F;
+            --dark: #1A1A2E;
+            --light: #FAFAFA;
+            --accent: #4ECDC4;
+            --text: #2D3142;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -1px;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '•';
+            color: var(--accent);
+            margin-left: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            min-height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 4rem 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInLeft 1s ease;
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #3AB8AE);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(78, 205, 196, 0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            animation: fadeInLeft 1s ease 0.2s both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #6B7280;
+            margin-bottom: 2.5rem;
+            animation: fadeInLeft 1s ease 0.4s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            animation: fadeInLeft 1s ease 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--dark);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: 2px solid var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .card-1 {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+
+        .card-2 {
+            bottom: 15%;
+            left: -8%;
+            animation-delay: 1s;
+        }
+
+        .floating-card h4 {
+            font-size: 0.9rem;
+            color: #6B7280;
+            margin-bottom: 0.5rem;
+        }
+
+        .floating-card p {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary), #FFB800);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #6B7280;
+            line-height: 1.8;
+        }
+
+        .categories-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #FFF, #F9FAFB);
+            padding: 2.5rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid transparent;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+        }
+
+        .category-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.2);
+        }
+
+        .category-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .category-card p {
+            color: #6B7280;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark), #2A2A4E);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,107,53,0.1), transparent);
+            border-radius: 50%;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .feature-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: rgba(255,255,255,0.8);
+            line-height: 1.8;
+        }
+
+        /* Popular Menu Section */
+        .popular-menu {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .menu-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            cursor: pointer;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .menu-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #FF9A8B, #FF6B95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.2), transparent);
+        }
+
+        .menu-content {
+            padding: 2rem;
+        }
+
+        .menu-restaurant {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .menu-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .menu-meta {
+            font-size: 0.9rem;
+            color: #6B7280;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            display: inline-block;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2.5rem;
+            }
+
+            .floating-card {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">kostfood</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#restaurant">Restaurant</a></li>
+                <li><a href="#tentang">Tentang Kami</a></li>
+            </ul>
+            <a href="#" class="cta-btn">Pesan Sekarang</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 100+ Menu Tersedia</div>
+            <h1>Portal Catering dengan Menu <span>Terlengkap</span></h1>
+            <p>Solusi terbaik untuk segala kebutuhan anak kost. Dari nasi kotak, makanan diet, prasmanan hingga catering harian dengan kualitas terjamin dan harga terjangkau.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">Lihat Menu</a>
+                <a href="#tentang" class="btn-secondary">Pelajari Lebih Lanjut</a>
+            </div>
+        </div>
+        <img src="image/hero.jpg" alt="Hero Image">
+            
+            <div class="floating-card card-1">
+                <h4>Rating Pelanggan</h4>
+                <p>⭐ 4.9/5.0</p>
+            </div>
+            <div class="floating-card card-2">
+                <h4>Total Pesanan</h4>
+                <p>50.000+</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="menu">
+        <div class="section-header">
+            <div class="section-badge">Kategori Menu</div>
+            <h2>Pilih Sesuai Kebutuhan Anda</h2>
+            <p>Berbagai pilihan menu catering untuk setiap momen spesial Anda</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">🍱</div>
+                <h3>Nasi Kotak</h3>
+                <p>Praktis untuk anak kost,mahasiswa dan masyarakat sttp. Pilihan menu beragam mulai dari Rp 20.000</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🧁</div>
+                <h3>Snack Box</h3>
+                <p>Kue dan camilan untuk coffee break dan acara santai. Mulai dari Rp 15.000</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎁</div>
+                <h3>Hampers</h3>
+                <p>Paket hadiah spesial untuk berbagai momen. Elegan dan berkesan</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🍜</div>
+                <h3>makanan sehat/diet</h3>
+                <p>makanan sehat/diet untuk anak kost dan mahasiswa</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🍽️</div>
+                <h3>Prasmanan</h3>
+                <p>cocok untuk acara besar dengan berbagai pilihan menu. Fleksibel dan memuaskan</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">🎂</div>
+                <h3>Whole Cake</h3>
+                <p>Kue utuh untuk ulang tahun dan perayaan. Lezat dan cantik</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">👔</div>
+                <h3>Katering Mahasiswa/Karyawan</h3>
+                <p>Solusi makan siang harian untuk anak kost dan mahasiswa. Praktis dan hemat</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">☕</div>
+                <h3>Coffee Break</h3>
+                <p>Menu lengkap untuk istirahat di tengah acara. Segar dan mengenyangkan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <div class="section-badge">Mengapa KostFood?</div>
+            <h2>Keunggulan Kami</h2>
+            <p>Dipercaya oleh ribuan pelanggan di payakumbuh dan sekitarnya</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <h3>Kualitas Terjamin</h3>
+                <p>Semua menu dipilih dari masakan sendiri dan catering terpercaya dengan standar kualitas tinggi</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⚡</div>
+                <h3>Proses Cepat</h3>
+                <p>Pemesanan mudah dan pengiriman tepat waktu. Kami menghargai waktu Anda</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💰</div>
+                <h3>Harga Fleksibel</h3>
+                <p>Pilihan menu dengan berbagai budget. Mulai dari Rp 15.000 hingga paket premium</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🎯</div>
+                <h3>100+ Menu</h3>
+                <p>Koleksi menu terlengkap dari masakan sendiri dan catering ternama</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">📍</div>
+                <h3>Jangkauan Luas</h3>
+                <p>Melayani anak kost,masyarakat STTP dan payakumbuh sekitar</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">⭐</div>
+                <h3>Customer Service</h3>
+                <p>Tim support siap membantu 7 hari seminggu dari jam 08:00 - 19:00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Menu Section -->
+    <section class="popular-menu">
+        <div class="section-header">
+            <div class="section-badge">Menu Favorit</div>
+            <h2>Menu Paling Populer</h2>
+            <p>Pilihan favorit pelanggan kami</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card">
+                <div class="menu-image">
+  <img src="image/nugget.jpg.jpg" alt="nugget">
+</div>
+                <div class="menu-content">
+                    <div class="menu-restaurant">gilangperdana catering</div>
+                    <h3>Nugget Crunchy Tartar</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min pax: 20</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="image/produk-2.jpg.jpg">
+                <div class="menu-content">
+                    <div class="menu-restaurant">masakan sendiri</div>
+                    <h3>nasi ayam sambal matah</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min: berapa saja</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="image/produk-3.jpg.jpg">
+                <div class="menu-content">
+                    <div class="menu-restaurant">masakan sendiri</div>
+                    <h3>Original Beef Bowl (R)</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min: berapa saja</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="image/produk-4.jpg.jpg">
+                <div class="menu-content">
+                    <div class="menu-restaurant">riski agustian Catering</div>
+                    <h3>nasi gila</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min pax:1</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="image/produk-5.jpg.jpg">
+                <div class="menu-content">
+                    <div class="menu-restaurant">Dapur wira</div>
+                    <h3>Paket Silver - Nasi Beef Teriyaki</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min: berapa saja</div>
+                </div>
+            </div>
+            <div class="menu-card">
+                <img src="image/produk-6.jpg.jpg">
+                <div class="menu-content">
+                    <div class="menu-restaurant">ira Catering</div>
+                    <h3>Praktis Bowl: Nasi Cumi Asin</h3>
+                    <div class="menu-price">Rp 20.000</div>
+                    <div class="menu-meta">Min pax: 1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Siap Memesan?</h2>
+            <p>Pesan sekarang dan nikmati kemudahan layanan catering terbaik untuk acara Anda. Tim kami siap membantu!</p>
+            <a href="#" class="btn-white">Mulai Pesan Sekarang</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>kostfood</h3>
+                <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">Portal catering terlengkap untuk berbagai kebutuhan anak kost . Dari mahasiswa hingga masyarakat STTP .</p>
+            </div>
+            <div class="footer-section">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#">Nasi Kotak</a></li>
+                    <li><a href="#">Snack Box</a></li>
+                    <li><a href="#">makanan diet</a></li>
+                    <li><a href="#">Prasmanan</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Perusahaan</h3>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Cara Pesan</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Partnership</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Hubungi Kami</h3>
+                <ul>
+                    <li><a href="tel:02150913494">📞 085376118768</a></li>
+                    <li><a href="#">📱 0853-76118768</a></li>
+                    <li><a href="#">✉️ info@kostfood.co.id</a></li>
+                    <li style="color: rgba(255,255,255,0.7); margin-top: 1rem;">Sen - Min: 08:00 - 19:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 kostfood.co.id - PT. Klik Eat Indonesia. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation to elements
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.category-card, .menu-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
